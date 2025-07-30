@@ -1,0 +1,55 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+class Rectangle{
+	private:
+		int x;
+		int y;
+	public:
+		Rectangle(){
+			x=0.0;
+			y=0.0;
+		}
+		Rectangle(int a,int b){
+			x=a; 
+			y=b;
+		}
+		void display(){
+			cout<<"("<<x<<","<<y<<")"<<endl;
+		}
+		float getx(){
+			return x;
+		}
+		float gety(){
+			return y;
+		}
+};
+class Polar{
+	private:
+		float radius;
+		float angle;
+	public:
+		Polar(){
+			radius=0.0;
+			angle=0.0;
+		}
+		void display(){
+			cout<<"("<<radius<<","<<angle<<")"<<endl;
+		}
+		Polar(Rectangle r1){
+			float x=r1.getx();
+			float y=r1.gety();
+			radius=sqrt(x*x+y*y);
+			angle=atan(y/x);
+		}
+};
+int main(){
+	Rectangle r1(4,6);
+	Polar p1;
+	p1=r1;
+	cout<<"Rectangular coordinate:";
+	r1.display();
+	cout<<"Polar coordinate:";
+	p1.display();
+	return 0;
+}
