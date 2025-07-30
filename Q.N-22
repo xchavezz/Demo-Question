@@ -1,0 +1,32 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+class User{
+	private:
+		char name[20];
+		float age;
+	public:
+		void get_data(){
+			cout<<"Enter the name of user"<<endl;
+			cin>>name;
+			cout<<"Enter the age of user"<<endl;
+			cin>>age;
+		}
+		void show_data(){
+			cout<<"Name of user:"<<name<<endl;
+			cout<<"Age of user:"<<age<<endl;
+		}
+};
+int main(){
+	User u1;
+	fstream file;
+	file.open("userinfo.txt",ios::in|ios::out|ios::trunc);
+	cout<<"Enter the detail of user"<<endl;
+	u1.get_data();
+	file.seekg(0);
+	cout<<"Detailed store in file are"<<endl;
+	file.read((char*)&u1,sizeof(u1));
+	u1.show_data();
+	file.close();
+	return 0;
+}
