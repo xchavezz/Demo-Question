@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+class Vechile2;
+class Vechile1{
+	private:
+		float price;
+	public:
+		 void set_price(float p){
+			price=p;	
+		}
+		friend void max(Vechile1 v1,Vechile2 v2);
+};
+class Vechile2{
+	private:
+		float price;
+	public:
+		 void set_price(float p){
+			price=p;	
+		}
+		friend void max(Vechile1 v1, Vechile2 v2);
+};
+void max(Vechile1 v1,Vechile2 v2){
+	if(v1.price>v2.price){
+		cout<<"Maximum is vechile1 with price "<<v1.price<<endl;
+	}
+	else{
+		cout<<"Maximum is vechile2 with price "<<v2.price<<endl;
+	}
+}
+int main(){
+	Vechile1 CBR;
+	Vechile2 BMW;
+	CBR.set_price(44444);
+	BMW.set_price(45454.6);
+	max(CBR,BMW);
+	return 0;
+}
