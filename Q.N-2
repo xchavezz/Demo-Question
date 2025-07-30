@@ -1,0 +1,49 @@
+#include<iostream>
+using namespace std;
+class B;
+class A{
+	private:
+		int x;
+	public:
+		void getdata(){
+			cout<<"Enter value of x"<<endl;
+			cin>>x;
+		}
+		void display(){
+			cout<<"value1="<<x<<endl;
+		}
+		friend void swap(A &m,B &n);
+};
+class B{
+	private:
+		int y;
+	public:
+		void getdata(){
+			cout<<"Enter value of y"<<endl;
+			cin>>y;
+		}
+		void display(){
+			cout<<"value2"<<y<<endl;
+		}
+		friend void swap(A &m,B &n);
+};
+void swap(A &m,B &n){
+  	int temp;
+  	temp=m.x;
+  	m.x=n.y;
+  	n.y=temp;
+}
+int main(){
+  	A p;
+  	B q;
+  	p.getdata();
+  	q.getdata();
+  	cout<<"Value before swapping"<<endl;
+  	p.display();
+  	q.display();
+  	swap(p,q);
+  	cout<<"Value after swapping"<<endl;
+  	p.display();
+  	q.display();
+	return 0;
+}
