@@ -1,0 +1,48 @@
+#include<iostream>
+#include<cstring>
+#include<fstream>
+using namespace std;
+class Employee{
+	private:
+		int emp_id;
+		char name[20];
+		char position[20];
+		float salary;
+	public:
+		void read_data(){
+		cout<<"Enter the emp_id"<<endl;
+		cin>>emp_id;
+		cout<<"Enter the name of employee"<<endl;
+		cin>>name;
+		cout<<"Enter the position of employee"<<endl;
+		cin>>position;
+		cout<<"Enter the salary of employee"<<endl;
+		cin>>salary;
+}
+		void write_data(){
+			if(salary>25000.0){
+			cout<<"emp_id:"<<emp_id<<endl;
+			cout<<"Name of employee:"<<name<<endl;
+			cout<<"position of employee:"<<position<<endl;
+			cout<<"Salary:"<<salary<<endl;
+			}	}
+};
+int main(){
+	Employee st[100];
+	int n;
+	cout<<"Enter number of employee"<<endl;
+	cin>>n;
+	fstream file;
+	file.open("employee.dat",ios::in|ios::out|ios::binary);
+	cout<<"Enter the detail of n employee"<<endl;
+	for(int i=0;i<n;i++){
+	st[i].read_data();
+	file.write((char*)&st[i],sizeof(st[i]));}
+	file.seekg(0);
+	cout<<"Details of employee store in file are:"<<endl;
+	for(int i=0;i<n;i++){
+	file.read((char*)&st[i],sizeof(st[i]));
+	st[i].write_data();}
+	file.close();
+	return 0;
+}
