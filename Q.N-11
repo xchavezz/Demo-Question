@@ -1,0 +1,71 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+class College{
+	protected:
+		char Name[50];
+		char Location[20];
+	public:
+		College(char na[],char l[]){
+			strcpy(Name,na);
+			strcpy(Location,l);
+		}
+		void display(){
+			cout<<"Name of college:"<<Name<<endl;
+			cout<<"Location of college:"<<Location<<endl;
+		}
+	};
+class Student: virtual public College{
+	protected:
+		char Name[20];
+		int Roll_no;
+	public:
+		Student(char na[],char l[],char n[],int R):College(na,l){
+			strcpy(Name,n);
+			Roll_no=R;
+		}
+		void display(){
+			cout<<"Name of student:"<<Name<<endl;
+			cout<<"Roll number of student:"<<Roll_no<<endl;
+		}
+};
+class Teacher: virtual public College{
+	protected:
+		char Name[20];
+		int code;
+	public:
+		Teacher( char na[],char l[],char tn[],int c):College(na,l){
+			strcpy(Name,tn);
+			code=c;
+		}
+		void display(){
+			cout<<"Name of teacher:"<<Name<<endl;
+			cout<<"Code of teacher:"<<code<<endl;
+		}
+};
+class Books:public Student,public Teacher{
+	protected:
+		char Book_name[30];
+		char Writer_name[30];
+		int code;
+	public:
+		Books(char na[],char l[],char n[],int R,char tn[],int c,char b[],char w[],int co):Student(na,l,n,R),Teacher(na,l,tn,c),College(na,l){
+			strcpy(Book_name,b);
+			strcpy(Writer_name,w);
+			code=co;
+		}
+		void display(){
+			cout<<"Name of Book:"<<Book_name<<endl;
+			cout<<"Name of Writer:"<<Writer_name<<endl;
+			cout<<"Code of Book:"<<code<<endl;
+			}
+			}; 
+int main(){
+
+	Books b1("EEC","Sanepa","LerBron",23,"Jordan",143,"OOP in c++","pradip",33);
+	b1.College::display();
+	b1.Student::display();
+	b1.Teacher::display();
+	b1.display();
+	return 0;	
+}
