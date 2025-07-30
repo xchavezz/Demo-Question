@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int i,size,sum=0;
+	int *ptr;
+	cout<<"Enter how many number  you want enter"<<endl;
+	cin>>size;
+	ptr=new int[size];
+	cout<<"Enter the any "<<size<<" number"<<endl;
+	for(i=0;i<size;i++){
+		cin>>ptr[i];
+	}
+	for(i=0;i<size;i++){
+		sum=sum+ptr[i];
+	}
+	cout<<"The sum of n entered number is "<<sum;
+	delete[]ptr;
+	return 0;
+}
