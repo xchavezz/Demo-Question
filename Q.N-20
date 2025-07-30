@@ -1,0 +1,14 @@
+#include<iostream>
+using namespace std;
+template <class T1>
+void Sum(T1 a,T1 b){
+			cout<<"Sum="<<(a+b)<<endl;
+			cout<<"Product="<<(a*b)<<endl;
+};
+int main(){
+	int i1=5,i2=6;
+	float f1=5.5,f2=6.6;
+	Sum(i1,i2);
+	Sum(f1,f2);
+	return 0;
+}
