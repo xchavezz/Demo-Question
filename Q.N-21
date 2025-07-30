@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+template<class T>
+void swapg(T &a,T &b){
+			T temp;
+			temp=a;
+			a=b;
+			b=temp;
+};
+int main(){
+	int i1=4,i2=9;
+	float f1=4.4,f2=9.9;
+	char c1='N',c2='I';
+	cout<<"Before swapping value:"<<endl;
+	cout<<"i1:"<<i1<<" i2:"<<i2<<endl;
+	cout<<"f1:"<<f1<<" f2:"<<f2<<endl;
+	cout<<"c1:"<<c1<<" c2:"<<c2<<endl;
+	swapg(i1,i2);
+	swapg(f1,f2);
+	swapg(c1,c2);
+	cout<<"After swapping value:"<<endl;
+	cout<<"i1:"<<i1<<" i2:"<<i2<<endl;
+	cout<<"f1:"<<f1<<" f2:"<<f2<<endl;
+	cout<<"c1:"<<c1<<" c2:"<<c2<<endl;
+	return 0;
+}
