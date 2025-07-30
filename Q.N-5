@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+class bank{
+	private:
+		float pamount;
+		float principle,rate,time;
+	public:
+		void set(float p,float t,float r=8){
+			principle=p;
+			time=t;
+			rate=r;
+		}
+		void calculate(){
+			pamount=(principle*time*rate)/100;
+		}
+		void display(){
+			cout<<"Simple Intrest="<<pamount<<endl;
+		}
+};
+int main(){
+	int i;
+	float principle,time;
+	bank b[3];
+	for(i=0;i<3;i++){
+		cout<<"Enter the principle,time for costumer "<<i+1<<endl;
+		cin>>principle>>time;
+		b[i].set(principle,time);
+		b[i].calculate();
+		b[i].display();
+	};
+	return 0;
+}
