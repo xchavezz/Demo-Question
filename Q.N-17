@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+class Height{
+	private:
+		int feet;
+		float inches;
+	public:
+		Height()
+		{
+		}
+		Height(float m)
+		{
+	     float f=3.28083*m;
+	     feet=int(f);
+	     inches=12*(f-feet);
+	    }
+	    void display()
+	    {
+	    	cout<<feet<<"Feet and "<<inches<<"inches"<<endl;
+		}
+};
+int main(){
+	float meter;
+	Height h1;
+	cout<<"Enter the height in meter"<<endl;
+	cin>>meter;
+	h1=meter;
+	cout<<"Height in feet and inches"<<endl;
+	h1.display();
+	return 0;
+}
