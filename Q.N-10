@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+class Employee{
+	private:
+		int id; 
+	    float salary;
+	public:
+		void getdata(){
+			cout<<"Enter the id and salary of employee"<<endl;
+			cin>>id>>salary;
+		}
+		void showdata(){
+			cout<<"ID of emplyee: "<<id<<endl;
+			cout<<"Salary of employee: "<<salary<<endl;
+		}
+};
+class Company{
+	private:
+		char name[20];
+		Employee e;
+	public:
+		void getdata(){
+		e.getdata();
+		cout<<"Enter the name of employee"<<endl;
+		cin>>name;}
+		void showdata(){
+			cout<<"Name of emplyee: "<<name<<endl;
+			e.showdata();
+		}
+};
+int main(){
+	Company c;
+	c.getdata();
+	c.showdata();
+	return 0;
+}
